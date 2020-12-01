@@ -15806,7 +15806,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var createMenu = function createMenu() {
-  var body = document.querySelector("#content");
+  var body = document.createElement("div");
+  body.classList.add("menu-content");
+
+  document.querySelector("body").appendChild(body);
 
   var hEl = document.createElement("h1");
   hEl.textContent = "Menu";
@@ -15867,10 +15870,24 @@ var createMenu = function createMenu() {
   }
 
   append(menuContainer, hEl, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
-
-  document.querySelector("#_1").querySelector(".name").textContent = "Cheesestciks";
-  document.querySelector("#_1").querySelector("img").setAttribute("src", "../../public/images/firstdessert.jpg");
-  document.querySelector("#_1").querySelector(".price").textContent = "$43.";
+  createMenuCard(1, "Cheese fluffers", "firstapp", 43);
+  createMenuCard(2, "Egg Rolls", "secondapp", 43);
+  createMenuCard(3, "Pigs in a blanket", "thirdapp", 45);
+  createMenuCard(4, "Zuchini Bites", "fourthapp", 43);
+  createMenuCard(5, "Bacon Rolls", "fifthapp", 43);
+  createMenuCard(6, "Mini Frittatas", "sixthapp", 43);
+  createMenuCard(7, "Scallops", "firstmain", 43);
+  createMenuCard(8, "Risotto", "secondmain", 43);
+  createMenuCard(9, "Macaroni&Cheese", "thirdmain", 43);
+  createMenuCard(10, "Meatloaf", "fourthmain", 43);
+  createMenuCard(11, "Sushi", "fifthmain", 43);
+  createMenuCard(12, "Hamburger", "sixthmain", 43);
+  createMenuCard(13, "Fudge Cookies", "firstdessert", 43);
+  createMenuCard(14, "Crumble Bars", "seconddessert", 43);
+  createMenuCard(15, "Oreo Cake", "thirddessert", 43);
+  createMenuCard(16, "Cheesecake", "fourthdessert", 43);
+  createMenuCard(17, "Lemon Bars", "fifthdessert", 43);
+  createMenuCard(18, "Rainbow Icecream", "sixthdessert", 43);
 };
 
 var append = function append(parent) {
@@ -15884,9 +15901,9 @@ var append = function append(parent) {
 };
 
 var createMenuCard = function createMenuCard(id, foodName, picFileName, price) {
-  document.querySelector("_" + id).querySelector(".name").textContent = "" + foodName;
-  document.querySelector("_" + id).querySelector("img").setAttribute("src", "../../public/images/" + picFileName);
-  document.querySelector("_" + id).querySelector(".price").textContent = "$" + price;
+  document.querySelector("#_" + id).querySelector(".name").textContent = "" + foodName;
+  document.querySelector("#_" + id).querySelector("img").setAttribute("src", "../../public/images/" + picFileName + ".jpg");
+  document.querySelector("#_" + id).querySelector(".price").textContent = "$" + price;
 };
 
 exports.createMenu = createMenu;

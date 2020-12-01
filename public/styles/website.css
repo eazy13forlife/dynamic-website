@@ -84,16 +84,16 @@ button:hover{
 /**menu styling**/
 .menu-container{
   width:90%;
-  border:1px solid black;
   margin:auto;
   text-align:center;
+  padding-bottom:2em;
 }
 .menu-container h1{
   color:var(--main-clr);
   font-family:var(--main-font);
 }
 .menu-heading{
-  margin-top:0.7em;
+  margin-top:2em;
   font-family:var(--main-font);
 }
 
@@ -102,13 +102,22 @@ img{
   height:250px;
 }
 .grid-container{
-  border:1px solid black;
-  margin:auto;
+  margin:1.5em auto 0 auto;
   justify-content:left;
+  column-gap:1em;
+  row-gap:1em;
   width:80%;
   height:30%;
   display:grid;
+  text-transform:capitalize;
   grid-template-columns:repeat(3,1fr);
   grid-template-rows:repeat(2,1fr);
+}
+.grid-container .name{
+  font-size:1.1rem;
+  font-family:var(--main-font)
+}
 
+.menu-content{
+  background-image:linear-gradient(lightgreen 40%,brown);
 }

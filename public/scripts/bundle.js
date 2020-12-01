@@ -15698,6 +15698,82 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./source/home.js":
+/*!************************!*\
+  !*** ./source/home.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var createHomePage = function createHomePage() {
+  var body = document.querySelector("#content");
+  //create my header section
+  var header = document.createElement("header");
+  var headerContainer = document.createElement("div");
+  headerContainer.classList.add("header-container");
+
+  //create left div header section that contains restaurants name
+  var leftHeaderDiv = document.createElement("div");
+  var restName = document.createElement("p");
+  restName.textContent = "Apples To Bananas";
+  leftHeaderDiv.appendChild(restName);
+  headerContainer.appendChild(leftHeaderDiv);
+
+  //create right div header section that contains nav links
+  var rightHeaderDiv = document.createElement("nav");
+  var homeTab = document.createElement("a");
+  homeTab.textContent = "Home";
+  var menuTab = document.createElement("a");
+  menuTab.textContent = "Menu";
+  var contactUsTab = document.createElement("a");
+  contactUsTab.textContent = "Contact Us";
+  append(rightHeaderDiv, homeTab, menuTab, contactUsTab);
+  headerContainer.appendChild(rightHeaderDiv);
+  header.appendChild(headerContainer);
+
+  //append the header to the body
+  body.appendChild(header);
+  //now that header is attached to the body, i
+  var allLinks = document.querySelectorAll("nav a");
+  allLinks.forEach(function (link) {
+    link.classList.add("link");
+  });
+
+  //create a sectiondiv that contains the body
+  var sectionDiv = document.createElement("section");
+  sectionDiv.classList.add("about");
+
+  body.appendChild(sectionDiv);
+
+  //create my main heading
+  var heading = document.createElement("h1");
+  heading.textContent = "Hop on in for some delicious cuisine!";
+
+  var buttonEl = document.createElement("button");
+  buttonEl.textContent = "Order Now";
+  append(sectionDiv, heading, buttonEl);
+};
+
+var append = function append(parent) {
+  for (var _len = arguments.length, elements = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    elements[_key - 1] = arguments[_key];
+  }
+
+  elements.forEach(function (element) {
+    parent.appendChild(element);
+  });
+};
+
+exports.createHomePage = createHomePage;
+
+/***/ }),
+
 /***/ "./source/index.js":
 /*!*************************!*\
   !*** ./source/index.js ***!
@@ -15708,15 +15784,7 @@ module.exports = g;
 "use strict";
 
 
-//when page loads, run some code
-
-//when first tab,menu is cliked, run some code that displays the menu stuff
-
-//when second tab, contact is clicked, run some code that displays my contact
-
-//whem the home page is clicked, run some code that shows my about stuff
-
-document.querySelector("html").style.fontSize = "30px";
+var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
 
 /***/ }),
 

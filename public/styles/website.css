@@ -12,8 +12,9 @@ body,p,h1,h2,h3,h4,ul{
 }
 
 :root{
-  --accent-clr:blue;
-  --main-clr:yellow;
+  --accent-clr:white;
+  --main-clr:green;
+  --main-font:'Rye', cursive;
 
 }
 #content{
@@ -27,7 +28,7 @@ body,p,h1,h2,h3,h4,ul{
   justify-content:space-between;
   padding:1em 1.5em;
 font-family: 'Rye', cursive;
-  color:green;
+  color:var(--main-clr);
 
 }
 
@@ -46,12 +47,11 @@ flex-direction:column;
 justify-content:center;
 align-items:center;
 position:relative;
-
 }
 
 .about h1{
   font-size:2rem;
-  color:white;
+  color:var(--accent-clr);
   font-family: 'Rye', cursive;
   font-weight:bold;
   text-transform:capitalize;
@@ -60,22 +60,55 @@ position:relative;
 
 /**end of about section**/
 button{
-  background-color:green;
-  border:2px solid white;
+  background-color:var(--main-clr);
+  border:2px solid var(--accent-clr);
   padding:0.3em 0.5em;
   font-size:1.3rem;
-  color:white;
-transition:300ms background ease-in;
-margin-top:1rem;
+  color:var(--accent-clr);
+  transition:300ms background ease-in;
+  margin-top:1rem;
 }
+
 button:hover{
-  background-color:white;
-  border:2px solid green;
-  color:green;
+  background-color:var(--accent-clr);
+  border:2px solid var(--main-clr);
+  color:var(--main-clr);
 }
 .bottom{
   padding-top:20em;
 }
 .top{
   margin-top:2em;
+}
+
+/**menu styling**/
+.menu-container{
+  width:90%;
+  border:1px solid black;
+  margin:auto;
+  text-align:center;
+}
+.menu-container h1{
+  color:var(--main-clr);
+  font-family:var(--main-font);
+}
+.menu-heading{
+  margin-top:0.7em;
+  font-family:var(--main-font);
+}
+
+img{
+  width:100%;
+  height:250px;
+}
+.grid-container{
+  border:1px solid black;
+  margin:auto;
+  justify-content:left;
+  width:80%;
+  height:30%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:repeat(2,1fr);
+
 }

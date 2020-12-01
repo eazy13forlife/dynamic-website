@@ -15786,6 +15786,111 @@ exports.createHomePage = createHomePage;
 
 var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
 
+var _menu = __webpack_require__(/*! ./menu.js */ "./source/menu.js");
+
+(0, _menu.createMenu)();
+
+/***/ }),
+
+/***/ "./source/menu.js":
+/*!************************!*\
+  !*** ./source/menu.js ***!
+  \************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var createMenu = function createMenu() {
+  var body = document.querySelector("#content");
+
+  var hEl = document.createElement("h1");
+  hEl.textContent = "Menu";
+
+  var menuContainer = document.createElement("div");
+  menuContainer.classList.add("menu-container");
+  body.appendChild(menuContainer);
+
+  var appetizers = document.createElement("h2");
+  appetizers.classList.add("menu-heading");
+  appetizers.textContent = "Appetizers";
+  var appsContainer = document.createElement("div");
+  appsContainer.classList.add("grid-container");
+  for (var i = 1; i <= 6; i++) {
+    var foodItem = document.createElement("div");
+    foodItem.setAttribute("id", "_" + i);
+    appsContainer.append(foodItem);
+    var nameEl = document.createElement("p");
+    nameEl.classList.add("name");
+    var image = document.createElement("img");
+    var priceEl = document.createElement("p");
+    priceEl.classList.add("price");
+    append(foodItem, nameEl, image, priceEl);
+  }
+
+  var mainCourse = document.createElement("h2");
+  mainCourse.classList.add("menu-heading");
+  mainCourse.textContent = "Main courses";
+  var mainContainer = document.createElement("div");
+  mainContainer.classList.add("grid-container");
+  for (var _i = 7; _i <= 12; _i++) {
+    var _foodItem = document.createElement("div");
+    _foodItem.setAttribute("id", "_" + _i);
+    mainContainer.append(_foodItem);
+    var _nameEl = document.createElement("p");
+    _nameEl.classList.add("name");
+    var _image = document.createElement("img");
+    var _priceEl = document.createElement("p");
+    _priceEl.classList.add("price");
+    append(_foodItem, _nameEl, _image, _priceEl);
+  }
+
+  var desserts = document.createElement("h2");
+  desserts.classList.add("menu-heading");
+  desserts.textContent = "Desserts";
+  var dessertsContainer = document.createElement("div");
+  dessertsContainer.classList.add("grid-container");
+  for (var _i2 = 13; _i2 <= 18; _i2++) {
+    var _foodItem2 = document.createElement("div");
+    _foodItem2.setAttribute("id", "_" + _i2);
+    dessertsContainer.append(_foodItem2);
+    var _nameEl2 = document.createElement("p");
+    _nameEl2.classList.add("name");
+    var _image2 = document.createElement("img");
+    var _priceEl2 = document.createElement("p");
+    _priceEl2.classList.add("price");
+    append(_foodItem2, _nameEl2, _image2, _priceEl2);
+  }
+
+  append(menuContainer, hEl, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
+
+  document.querySelector("#_1").querySelector(".name").textContent = "Cheesestciks";
+  document.querySelector("#_1").querySelector("img").setAttribute("src", "../../public/images/firstdessert.jpg");
+  document.querySelector("#_1").querySelector(".price").textContent = "$43.";
+};
+
+var append = function append(parent) {
+  for (var _len = arguments.length, elements = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    elements[_key - 1] = arguments[_key];
+  }
+
+  elements.forEach(function (element) {
+    parent.appendChild(element);
+  });
+};
+
+var createMenuCard = function createMenuCard(id, foodName, picFileName, price) {
+  document.querySelector("_" + id).querySelector(".name").textContent = "" + foodName;
+  document.querySelector("_" + id).querySelector("img").setAttribute("src", "../../public/images/" + picFileName);
+  document.querySelector("_" + id).querySelector(".price").textContent = "$" + price;
+};
+
+exports.createMenu = createMenu;
+
 /***/ }),
 
 /***/ 0:

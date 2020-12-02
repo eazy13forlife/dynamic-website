@@ -12,7 +12,6 @@ const restName=document.createElement("p");
 restName.textContent="Apples To Bananas";
 leftHeaderDiv.appendChild(restName);
 headerContainer.appendChild(leftHeaderDiv);
-headerContainer.appendChild(hEl);
 //create right div header section that contains nav links
 const rightHeaderDiv=document.createElement("nav");
 const homeTab=document.createElement("a");
@@ -94,7 +93,7 @@ body.appendChild(menuContainer);
 
 
 
-append(menuContainer,appetizers,appsContainer,mainCourse,mainContainer,desserts,dessertsContainer)
+append(menuContainer,hEl,appetizers,appsContainer,mainCourse,mainContainer,desserts,dessertsContainer)
 
 //create a menu card for each item on our menu
 createMenuCard(1,"Cheese fluffers","firstapp",43);

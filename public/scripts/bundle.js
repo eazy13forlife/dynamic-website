@@ -15901,7 +15901,7 @@ var _menu = __webpack_require__(/*! ./menu.js */ "./source/menu.js");
 
 var _contact = __webpack_require__(/*! ./contact.js */ "./source/contact.js");
 
-(0, _contact.createContactUs)();
+(0, _menu.createMenu)();
 
 /***/ }),
 
@@ -15932,7 +15932,6 @@ var createMenu = function createMenu() {
   restName.textContent = "Apples To Bananas";
   leftHeaderDiv.appendChild(restName);
   headerContainer.appendChild(leftHeaderDiv);
-  headerContainer.appendChild(hEl);
   //create right div header section that contains nav links
   var rightHeaderDiv = document.createElement("nav");
   var homeTab = document.createElement("a");
@@ -16010,7 +16009,7 @@ var createMenu = function createMenu() {
     append(_foodItem2, _nameEl2, _image2, _priceEl2);
   }
 
-  append(menuContainer, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
+  append(menuContainer, hEl, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
 
   //create a menu card for each item on our menu
   createMenuCard(1, "Cheese fluffers", "firstapp", 43);

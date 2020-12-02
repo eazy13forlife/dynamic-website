@@ -92,17 +92,29 @@ button:hover{
 
 /**menu styling**/
 .menu-container{
+  color:var(--accent-clr);
   width:90%;
   margin:auto;
   text-align:center;
   padding-bottom:2em;
   text-transform:capitalize;
 }
-
-.menu-heading{
-  padding-top:2em;
+.menu-container h1{
+  color:var(--accent-clr);
+  font-size:3rem;
   font-family:var(--main-font);
-  color:white;
+  text-decoration:underline;
+}
+.menu-heading{
+  font-family:var(--main-font);
+  color:var(--accent-clr);
+  text-align:left;
+  margin-left:4em;
+  border:1px solid black;
+  width:200px;
+  background-color:var(--main-clr);
+  text-align:center;
+  margin-top:3em;
 }
 
 img{
@@ -124,13 +136,21 @@ img{
   font-size:1.1rem;
   font-family:var(--main-font)
 }
-
+.grid-container img{
+  box-shadow:1px 3px 7px grey;
+}
 section.menu-content{
   background-color:var(--page-clr);
 }
 .price{
   font-weight:bold;
+  color:var(--main-clr);
+  font-size:1.2rem;
 }
+/**end of menu stylings**/
+
+
+
 /**section for contact us**/
 section.contact-us{
   background-color:var(--page-clr);
@@ -148,7 +168,7 @@ div.contact-us-container{
   align-items:center;
   font-weight:bold;
   font-size:2rem;
-  color:white;
+  color:var(--accent-clr);
 }
 .contact-us-container p{
   position:relative;

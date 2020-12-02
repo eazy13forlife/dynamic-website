@@ -150,3 +150,21 @@ div.contact-us-container{
   font-size:2rem;
   color:white;
 }
+.contact-us-container p{
+  position:relative;
+}
+  .address-icon img{
+    width:48px;
+    height:48px;
+    position:absolute;
+    bottom:5rem;
+    left:7rem;
+  }
+
+  .calendar-icon img{
+    width:62px;
+    height:62px;
+    position:absolute;
+    bottom:5rem;
+    left:7rem;
+  }

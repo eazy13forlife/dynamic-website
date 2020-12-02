@@ -1,3 +1,5 @@
+import{homeTab,menuTab,contactUsTab}from "./home.js"
+
 const createMenu=()=>{
   const hEl=document.createElement("h1");
   hEl.textContent="Menu"
@@ -14,12 +16,6 @@ leftHeaderDiv.appendChild(restName);
 headerContainer.appendChild(leftHeaderDiv);
 //create right div header section that contains nav links
 const rightHeaderDiv=document.createElement("nav");
-const homeTab=document.createElement("a");
-homeTab.textContent="Home";
-const menuTab=document.createElement("a");
-menuTab.textContent="Menu"
-const contactUsTab=document.createElement("a");
-contactUsTab.textContent="Contact Us"
 append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
 headerContainer.appendChild(rightHeaderDiv);
 header.appendChild(headerContainer)

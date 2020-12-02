@@ -1,9 +1,19 @@
+const homeTab=document.createElement("a");
+homeTab.setAttribute("id","home");
+homeTab.textContent="Home";
+const menuTab=document.createElement("a");
+menuTab.setAttribute("id","menu");
+menuTab.textContent="Menu"
+const contactUsTab=document.createElement("a");
+contactUsTab.setAttribute("id","contact_us")
+contactUsTab.textContent="Contact Us"
+
 const createHomePage=()=>{
   const body=document.createElement("div")
   body.classList.add("content")
   document.querySelector("body").appendChild(body);
 
-  
+
   //create my header section
   const header=document.createElement("header");
   const headerContainer=document.createElement("div");
@@ -18,12 +28,6 @@ const createHomePage=()=>{
 
   //create right div header section that contains nav links
   const rightHeaderDiv=document.createElement("nav");
-  const homeTab=document.createElement("a");
-  homeTab.textContent="Home";
-  const menuTab=document.createElement("a");
-  menuTab.textContent="Menu"
-  const contactUsTab=document.createElement("a");
-  contactUsTab.textContent="Contact Us"
   append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
   headerContainer.appendChild(rightHeaderDiv);
   header.appendChild(headerContainer)
@@ -62,4 +66,4 @@ const append=(parent,...elements)=>{
 
 
 
-export{createHomePage}
+export{createHomePage,homeTab,menuTab,contactUsTab}

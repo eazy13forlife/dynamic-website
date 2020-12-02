@@ -1,5 +1,7 @@
 import{append}from"./menu.js"
 import{addressIcon,calendarIcon}from "./icons.js"
+import{homeTab,menuTab,contactUsTab}from "./home.js"
+
 const createContactUs=()=>{
   //create my footer
 
@@ -17,11 +19,6 @@ const createContactUs=()=>{
 
   //create right div header section that contains nav links
   const rightHeaderDiv=document.createElement("nav");
-  const homeTab=document.createElement("a");
-  homeTab.textContent="Home";
-  const menuTab=document.createElement("a");
-  menuTab.textContent="Menu"
-  const contactUsTab=document.createElement("a");
   contactUsTab.textContent="Contact Us"
   append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
   headerContainer.appendChild(rightHeaderDiv);

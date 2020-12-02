@@ -15717,6 +15717,8 @@ var _menu = __webpack_require__(/*! ./menu.js */ "./source/menu.js");
 
 var _icons = __webpack_require__(/*! ./icons.js */ "./source/icons.js");
 
+var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
+
 var createContactUs = function createContactUs() {
   //create my footer
 
@@ -15734,13 +15736,8 @@ var createContactUs = function createContactUs() {
 
   //create right div header section that contains nav links
   var rightHeaderDiv = document.createElement("nav");
-  var homeTab = document.createElement("a");
-  homeTab.textContent = "Home";
-  var menuTab = document.createElement("a");
-  menuTab.textContent = "Menu";
-  var contactUsTab = document.createElement("a");
-  contactUsTab.textContent = "Contact Us";
-  (0, _menu.append)(rightHeaderDiv, homeTab, menuTab, contactUsTab);
+  _home.contactUsTab.textContent = "Contact Us";
+  (0, _menu.append)(rightHeaderDiv, _home.homeTab, _home.menuTab, _home.contactUsTab);
   headerContainer.appendChild(rightHeaderDiv);
   header.appendChild(headerContainer);
 
@@ -15798,6 +15795,16 @@ exports.createContactUs = createContactUs;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var homeTab = document.createElement("a");
+homeTab.setAttribute("id", "home");
+homeTab.textContent = "Home";
+var menuTab = document.createElement("a");
+menuTab.setAttribute("id", "menu");
+menuTab.textContent = "Menu";
+var contactUsTab = document.createElement("a");
+contactUsTab.setAttribute("id", "contact_us");
+contactUsTab.textContent = "Contact Us";
+
 var createHomePage = function createHomePage() {
   var body = document.createElement("div");
   body.classList.add("content");
@@ -15817,12 +15824,6 @@ var createHomePage = function createHomePage() {
 
   //create right div header section that contains nav links
   var rightHeaderDiv = document.createElement("nav");
-  var homeTab = document.createElement("a");
-  homeTab.textContent = "Home";
-  var menuTab = document.createElement("a");
-  menuTab.textContent = "Menu";
-  var contactUsTab = document.createElement("a");
-  contactUsTab.textContent = "Contact Us";
   append(rightHeaderDiv, homeTab, menuTab, contactUsTab);
   headerContainer.appendChild(rightHeaderDiv);
   header.appendChild(headerContainer);
@@ -15861,6 +15862,9 @@ var append = function append(parent) {
 };
 
 exports.createHomePage = createHomePage;
+exports.homeTab = homeTab;
+exports.menuTab = menuTab;
+exports.contactUsTab = contactUsTab;
 
 /***/ }),
 
@@ -15901,7 +15905,45 @@ var _menu = __webpack_require__(/*! ./menu.js */ "./source/menu.js");
 
 var _contact = __webpack_require__(/*! ./contact.js */ "./source/contact.js");
 
-(0, _menu.createMenu)();
+(0, _home.createHomePage)();
+/*
+const renderPage=(e)=>{
+  if(e.target.id==="home"){
+      document.querySelector("body").innerHTML="";
+    createHomePage();
+  }else if(e.target.id==="menu"){
+      document.querySelector("body").innerHTML="";
+    createMenu();
+  }else if(e.target.id==="contact_us"){
+      document.querySelector("body").innerHTML="";
+    createContactUs();
+  }
+}
+
+document.querySelector("header").addEventListener("click",renderPage)
+*/
+var clearEverything = function clearEverything() {
+  document.querySelector("body").innerHTML = "";
+};
+
+document.querySelector("#home").addEventListener("click", function (e) {
+  clearEverything();
+  (0, _home.createHomePage)();
+});
+
+document.querySelector("#menu").addEventListener("click", function (e) {
+  clearEverything();
+  (0, _menu.createMenu)();
+});
+
+document.querySelector("#contact_us").addEventListener("click", function (e) {
+  clearEverything();
+  (0, _contact.createContactUs)();
+});
+document.querySelector(".about button").addEventListener("click", function (e) {
+  clearEverything();
+  (0, _menu.createMenu)();
+});
 
 /***/ }),
 
@@ -15918,6 +15960,10 @@ var _contact = __webpack_require__(/*! ./contact.js */ "./source/contact.js");
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.append = exports.createMenu = undefined;
+
+var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
+
 var createMenu = function createMenu() {
   var hEl = document.createElement("h1");
   hEl.textContent = "Menu";
@@ -15934,13 +15980,7 @@ var createMenu = function createMenu() {
   headerContainer.appendChild(leftHeaderDiv);
   //create right div header section that contains nav links
   var rightHeaderDiv = document.createElement("nav");
-  var homeTab = document.createElement("a");
-  homeTab.textContent = "Home";
-  var menuTab = document.createElement("a");
-  menuTab.textContent = "Menu";
-  var contactUsTab = document.createElement("a");
-  contactUsTab.textContent = "Contact Us";
-  append(rightHeaderDiv, homeTab, menuTab, contactUsTab);
+  append(rightHeaderDiv, _home.homeTab, _home.menuTab, _home.contactUsTab);
   headerContainer.appendChild(rightHeaderDiv);
   header.appendChild(headerContainer);
 

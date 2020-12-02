@@ -45,6 +45,11 @@ font-family: 'Rye', cursive;
   margin-left:.833em;
 }
 
+nav a:hover{
+  text-decoration:underline;
+  font-size:1.25rem;
+}
+
 /** work on about section**/
 section.about:not(.footer-class){
 background-image:url("../images/home2-image.jpg");

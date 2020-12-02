@@ -1,3 +1,4 @@
 import{createHomePage}from "./home.js"
 import{createMenu} from "./menu.js"
-createMenu();
+import{createContactUs}from "./contact.js"
+createContactUs();

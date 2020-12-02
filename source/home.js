@@ -1,5 +1,9 @@
 const createHomePage=()=>{
-  const body=document.querySelector("#content")
+  const body=document.createElement("div")
+  body.classList.add("content")
+  document.querySelector("body").appendChild(body);
+
+  
   //create my header section
   const header=document.createElement("header");
   const headerContainer=document.createElement("div");

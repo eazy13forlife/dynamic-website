@@ -15698,6 +15698,78 @@ module.exports = g;
 
 /***/ }),
 
+/***/ "./source/contact.js":
+/*!***************************!*\
+  !*** ./source/contact.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.createContactUs = undefined;
+
+var _menu = __webpack_require__(/*! ./menu.js */ "./source/menu.js");
+
+var createContactUs = function createContactUs() {
+  //create my footer
+
+  //create my header section
+  var header = document.createElement("header");
+  var headerContainer = document.createElement("div");
+  headerContainer.classList.add("header-container");
+
+  //create left div header section that contains restaurants name
+  var leftHeaderDiv = document.createElement("div");
+  var restName = document.createElement("p");
+  restName.textContent = "Apples To Bananas";
+  leftHeaderDiv.appendChild(restName);
+  headerContainer.appendChild(leftHeaderDiv);
+
+  //create right div header section that contains nav links
+  var rightHeaderDiv = document.createElement("nav");
+  var homeTab = document.createElement("a");
+  homeTab.textContent = "Home";
+  var menuTab = document.createElement("a");
+  menuTab.textContent = "Menu";
+  var contactUsTab = document.createElement("a");
+  contactUsTab.textContent = "Contact Us";
+  (0, _menu.append)(rightHeaderDiv, homeTab, menuTab, contactUsTab);
+  headerContainer.appendChild(rightHeaderDiv);
+  header.appendChild(headerContainer);
+
+  //append the header to my document first
+  document.querySelector("body").appendChild(headerContainer);
+
+  //create a section called contact us
+  var body = document.createElement("section");
+  body.classList.add("contact-us");
+
+  //create a container that holds the section indo
+  var container = document.createElement("div");
+  container.classList.add("contact-us-container");
+  body.appendChild(container);
+  document.querySelector("body").appendChild(body);
+
+  var addressP = document.createElement("p");
+  addressP.innerHTML = "<p>1024 Oakwood Ave, <br/>Los Angeles CA,91423</p>";
+
+  var timeP = document.createElement("p");
+  timeP.innerHTML = "<p>Mon-Thurs:8am-8pm<br/>Fri-Sun:8am-11pm</p>";
+  (0, _menu.append)(container, addressP, timeP);
+};
+
+//append(footer,addressP,timeP)
+//append(sectionDiv,footer)
+
+exports.createContactUs = createContactUs;
+
+/***/ }),
+
 /***/ "./source/home.js":
 /*!************************!*\
   !*** ./source/home.js ***!
@@ -15712,7 +15784,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var createHomePage = function createHomePage() {
-  var body = document.querySelector("#content");
+  var body = document.createElement("div");
+  body.classList.add("content");
+  document.querySelector("body").appendChild(body);
+
   //create my header section
   var header = document.createElement("header");
   var headerContainer = document.createElement("div");
@@ -15788,7 +15863,9 @@ var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
 
 var _menu = __webpack_require__(/*! ./menu.js */ "./source/menu.js");
 
-(0, _menu.createMenu)();
+var _contact = __webpack_require__(/*! ./contact.js */ "./source/contact.js");
+
+(0, _contact.createContactUs)();
 
 /***/ }),
 
@@ -15806,18 +15883,46 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var createMenu = function createMenu() {
-  var body = document.createElement("div");
+  var hEl = document.createElement("h1");
+  hEl.textContent = "Menu";
+  //create my header section
+  var header = document.createElement("header");
+  var headerContainer = document.createElement("div");
+  headerContainer.classList.add("header-container");
+
+  //create left div header section that contains restaurants name
+  var leftHeaderDiv = document.createElement("div");
+  var restName = document.createElement("p");
+  restName.textContent = "Apples To Bananas";
+  leftHeaderDiv.appendChild(restName);
+  headerContainer.appendChild(leftHeaderDiv);
+  headerContainer.appendChild(hEl);
+  //create right div header section that contains nav links
+  var rightHeaderDiv = document.createElement("nav");
+  var homeTab = document.createElement("a");
+  homeTab.textContent = "Home";
+  var menuTab = document.createElement("a");
+  menuTab.textContent = "Menu";
+  var contactUsTab = document.createElement("a");
+  contactUsTab.textContent = "Contact Us";
+  append(rightHeaderDiv, homeTab, menuTab, contactUsTab);
+  headerContainer.appendChild(rightHeaderDiv);
+  header.appendChild(headerContainer);
+
+  //append the header to my document first
+  document.querySelector("body").appendChild(headerContainer);
+
+  //append the menu-content div to my body. Contains everything related to menu
+  var body = document.createElement("section");
   body.classList.add("menu-content");
 
   document.querySelector("body").appendChild(body);
-
-  var hEl = document.createElement("h1");
-  hEl.textContent = "Menu";
 
   var menuContainer = document.createElement("div");
   menuContainer.classList.add("menu-container");
   body.appendChild(menuContainer);
 
+  //create the grid container for appetizers,main courses, and desserts
   var appetizers = document.createElement("h2");
   appetizers.classList.add("menu-heading");
   appetizers.textContent = "Appetizers";
@@ -15869,7 +15974,9 @@ var createMenu = function createMenu() {
     append(_foodItem2, _nameEl2, _image2, _priceEl2);
   }
 
-  append(menuContainer, hEl, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
+  append(menuContainer, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
+
+  //create a menu card for each item on our menu
   createMenuCard(1, "Cheese fluffers", "firstapp", 43);
   createMenuCard(2, "Egg Rolls", "secondapp", 43);
   createMenuCard(3, "Pigs in a blanket", "thirdapp", 45);
@@ -15907,6 +16014,7 @@ var createMenuCard = function createMenuCard(id, foodName, picFileName, price) {
 };
 
 exports.createMenu = createMenu;
+exports.append = append;
 
 /***/ }),
 

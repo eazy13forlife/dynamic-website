@@ -15,9 +15,10 @@ body,p,h1,h2,h3,h4,ul{
   --accent-clr:white;
   --main-clr:green;
   --main-font:'Rye', cursive;
+  --page-clr:#B1A791;
 
 }
-#content{
+.content{
   height:100vh;
 }
 /** working on header now**/
@@ -26,12 +27,20 @@ body,p,h1,h2,h3,h4,ul{
   font-size:1.2rem;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   padding:1em 1.5em;
 font-family: 'Rye', cursive;
   color:var(--main-clr);
-
 }
 
+.header-container h1{
+  letter-spacing:1em;
+  margin-left:3em;
+}
+.header-container h1.contact{
+  letter-spacing:0.3em;
+  margin-left:0em;
+}
 .header-container a{
   margin-left:.833em;
 }
@@ -87,14 +96,13 @@ button:hover{
   margin:auto;
   text-align:center;
   padding-bottom:2em;
+  text-transform:capitalize;
 }
-.menu-container h1{
-  color:var(--main-clr);
-  font-family:var(--main-font);
-}
+
 .menu-heading{
-  margin-top:2em;
+  padding-top:2em;
   font-family:var(--main-font);
+  color:white;
 }
 
 img{
@@ -102,14 +110,13 @@ img{
   height:250px;
 }
 .grid-container{
-  margin:1.5em auto 0 auto;
+  margin:1em auto 0 auto;
   justify-content:left;
   column-gap:1em;
   row-gap:1em;
   width:80%;
   height:30%;
   display:grid;
-  text-transform:capitalize;
   grid-template-columns:repeat(3,1fr);
   grid-template-rows:repeat(2,1fr);
 }
@@ -118,6 +125,28 @@ img{
   font-family:var(--main-font)
 }
 
-.menu-content{
-  background-image:linear-gradient(lightgreen 40%,brown);
+section.menu-content{
+  background-color:var(--page-clr);
+}
+.price{
+  font-weight:bold;
+}
+/**section for contact us**/
+section.contact-us{
+  background-color:var(--page-clr);
+  height:90vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+div.contact-us-container{
+  width:90%;
+  height:60%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:bold;
+  font-size:2rem;
+  color:white;
 }

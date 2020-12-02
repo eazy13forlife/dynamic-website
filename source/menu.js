@@ -1,18 +1,46 @@
 const createMenu=()=>{
-  const body=document.createElement("div")
-  body.classList.add("menu-content")
+  const hEl=document.createElement("h1");
+  hEl.textContent="Menu"
+//create my header section
+const header=document.createElement("header");
+const headerContainer=document.createElement("div");
+headerContainer.classList.add("header-container")
+
+//create left div header section that contains restaurants name
+const leftHeaderDiv=document.createElement("div")
+const restName=document.createElement("p");
+restName.textContent="Apples To Bananas";
+leftHeaderDiv.appendChild(restName);
+headerContainer.appendChild(leftHeaderDiv);
+headerContainer.appendChild(hEl);
+//create right div header section that contains nav links
+const rightHeaderDiv=document.createElement("nav");
+const homeTab=document.createElement("a");
+homeTab.textContent="Home";
+const menuTab=document.createElement("a");
+menuTab.textContent="Menu"
+const contactUsTab=document.createElement("a");
+contactUsTab.textContent="Contact Us"
+append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
+headerContainer.appendChild(rightHeaderDiv);
+header.appendChild(headerContainer)
+
+//append the header to my document first
+document.querySelector("body").appendChild(headerContainer)
+
+//append the menu-content div to my body. Contains everything related to menu
+const body=document.createElement("section")
+body.classList.add("menu-content")
 
 document.querySelector("body").appendChild(body);
 
-  const hEl=document.createElement("h1");
-  hEl.textContent="Menu"
 
 
-  const menuContainer=document.createElement("div");
-  menuContainer.classList.add("menu-container")
-  body.appendChild(menuContainer);
+const menuContainer=document.createElement("div");
+menuContainer.classList.add("menu-container")
+body.appendChild(menuContainer);
 
-
+//create the grid container for appetizers,main courses, and desserts
   const appetizers=document.createElement("h2");
   appetizers.classList.add("menu-heading");
   appetizers.textContent="Appetizers";
@@ -66,7 +94,9 @@ document.querySelector("body").appendChild(body);
 
 
 
-append(menuContainer,hEl,appetizers,appsContainer,mainCourse,mainContainer,desserts,dessertsContainer)
+append(menuContainer,appetizers,appsContainer,mainCourse,mainContainer,desserts,dessertsContainer)
+
+//create a menu card for each item on our menu
 createMenuCard(1,"Cheese fluffers","firstapp",43);
 createMenuCard(2,"Egg Rolls","secondapp",43);
 createMenuCard(3,"Pigs in a blanket","thirdapp",45)
@@ -102,4 +132,4 @@ const createMenuCard=(id,foodName,picFileName,price)=>{
   document.querySelector(`#_${id}`).querySelector(".price").textContent=`$${price}`
 }
 
-export{createMenu}
+export{createMenu,append}

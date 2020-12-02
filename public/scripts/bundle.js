@@ -15720,29 +15720,8 @@ var _icons = __webpack_require__(/*! ./icons.js */ "./source/icons.js");
 var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
 
 var createContactUs = function createContactUs() {
-  //create my footer
-
-  //create my header section
-  var header = document.createElement("header");
-  var headerContainer = document.createElement("div");
-  headerContainer.classList.add("header-container");
-
-  //create left div header section that contains restaurants name
-  var leftHeaderDiv = document.createElement("div");
-  var restName = document.createElement("p");
-  restName.textContent = "Apples To Bananas";
-  leftHeaderDiv.appendChild(restName);
-  headerContainer.appendChild(leftHeaderDiv);
-
-  //create right div header section that contains nav links
-  var rightHeaderDiv = document.createElement("nav");
-  _home.contactUsTab.textContent = "Contact Us";
-  (0, _menu.append)(rightHeaderDiv, _home.homeTab, _home.menuTab, _home.contactUsTab);
-  headerContainer.appendChild(rightHeaderDiv);
-  header.appendChild(headerContainer);
-
   //append the header to my document first
-  document.querySelector("body").appendChild(headerContainer);
+  document.querySelector("body").appendChild(_home.header);
 
   //create a section called contact us
   var body = document.createElement("section");
@@ -15754,6 +15733,7 @@ var createContactUs = function createContactUs() {
   body.appendChild(container);
   document.querySelector("body").appendChild(body);
 
+  //create div container that holds the restaurants address
   var addressP = document.createElement("p");
   addressP.innerHTML = "<p>1024 Oakwood Ave, <br/>Los Angeles CA,91423</p>";
   //create a span element that holds the address Icon
@@ -15764,6 +15744,7 @@ var createContactUs = function createContactUs() {
   spanEl.appendChild(addressImage);
   addressP.appendChild(spanEl);
 
+  //create a div container that holds the restaurants hours
   var timeP = document.createElement("p");
   timeP.innerHTML = "<p>Mon-Thurs:8am-8pm<br/>Fri-Sun:8am-11pm</p>";
   (0, _menu.append)(container, addressP, timeP);
@@ -15774,9 +15755,6 @@ var createContactUs = function createContactUs() {
   spanEl2.appendChild(calendarImage);
   timeP.appendChild(spanEl2);
 };
-
-//append(footer,addressP,timeP)
-//append(sectionDiv,footer)
 
 exports.createContactUs = createContactUs;
 
@@ -15795,6 +15773,34 @@ exports.createContactUs = createContactUs;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var append = function append(parent) {
+  for (var _len = arguments.length, elements = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+    elements[_key - 1] = arguments[_key];
+  }
+
+  elements.forEach(function (element) {
+    parent.appendChild(element);
+  });
+};
+
+//create my header section
+var header = document.createElement("header");
+var headerContainer = document.createElement("div");
+headerContainer.classList.add("header-container");
+
+//create left div header section that contains restaurants name
+var leftHeaderDiv = document.createElement("div");
+var restName = document.createElement("p");
+restName.textContent = "Apples To Bananas";
+leftHeaderDiv.appendChild(restName);
+headerContainer.appendChild(leftHeaderDiv);
+
+//create right div header section that contains nav links
+var rightHeaderDiv = document.createElement("nav");
+
+headerContainer.appendChild(rightHeaderDiv);
+header.appendChild(headerContainer);
+
 var homeTab = document.createElement("a");
 homeTab.setAttribute("id", "home");
 homeTab.textContent = "Home";
@@ -15804,29 +15810,12 @@ menuTab.textContent = "Menu";
 var contactUsTab = document.createElement("a");
 contactUsTab.setAttribute("id", "contact_us");
 contactUsTab.textContent = "Contact Us";
+append(rightHeaderDiv, homeTab, menuTab, contactUsTab);
 
 var createHomePage = function createHomePage() {
   var body = document.createElement("div");
   body.classList.add("content");
   document.querySelector("body").appendChild(body);
-
-  //create my header section
-  var header = document.createElement("header");
-  var headerContainer = document.createElement("div");
-  headerContainer.classList.add("header-container");
-
-  //create left div header section that contains restaurants name
-  var leftHeaderDiv = document.createElement("div");
-  var restName = document.createElement("p");
-  restName.textContent = "Apples To Bananas";
-  leftHeaderDiv.appendChild(restName);
-  headerContainer.appendChild(leftHeaderDiv);
-
-  //create right div header section that contains nav links
-  var rightHeaderDiv = document.createElement("nav");
-  append(rightHeaderDiv, homeTab, menuTab, contactUsTab);
-  headerContainer.appendChild(rightHeaderDiv);
-  header.appendChild(headerContainer);
 
   //append the header to the body
   body.appendChild(header);
@@ -15851,20 +15840,12 @@ var createHomePage = function createHomePage() {
   append(sectionDiv, heading, buttonEl);
 };
 
-var append = function append(parent) {
-  for (var _len = arguments.length, elements = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    elements[_key - 1] = arguments[_key];
-  }
-
-  elements.forEach(function (element) {
-    parent.appendChild(element);
-  });
-};
-
 exports.createHomePage = createHomePage;
 exports.homeTab = homeTab;
 exports.menuTab = menuTab;
 exports.contactUsTab = contactUsTab;
+exports.header = header;
+exports.append = append;
 
 /***/ }),
 
@@ -15967,35 +15948,21 @@ var _home = __webpack_require__(/*! ./home.js */ "./source/home.js");
 var createMenu = function createMenu() {
   var hEl = document.createElement("h1");
   hEl.textContent = "Menu";
-  //create my header section
-  var header = document.createElement("header");
-  var headerContainer = document.createElement("div");
-  headerContainer.classList.add("header-container");
-
-  //create left div header section that contains restaurants name
-  var leftHeaderDiv = document.createElement("div");
-  var restName = document.createElement("p");
-  restName.textContent = "Apples To Bananas";
-  leftHeaderDiv.appendChild(restName);
-  headerContainer.appendChild(leftHeaderDiv);
-  //create right div header section that contains nav links
-  var rightHeaderDiv = document.createElement("nav");
-  append(rightHeaderDiv, _home.homeTab, _home.menuTab, _home.contactUsTab);
-  headerContainer.appendChild(rightHeaderDiv);
-  header.appendChild(headerContainer);
 
   //append the header to my document first
-  document.querySelector("body").appendChild(headerContainer);
+  document.querySelector("body").appendChild(_home.header);
 
-  //append the menu-content div to my body. Contains everything related to menu
-  var body = document.createElement("section");
-  body.classList.add("menu-content");
+  //create a section with class of menu-content. Contains everything related to menu
+  var section = document.createElement("section");
+  section.classList.add("menu-content");
 
-  document.querySelector("body").appendChild(body);
+  //append this section to my body
+  document.querySelector("body").appendChild(section);
 
+  //create a menu container div that goes inside my menu-content section. It's just a container for the elements in that section.
   var menuContainer = document.createElement("div");
   menuContainer.classList.add("menu-container");
-  body.appendChild(menuContainer);
+  section.appendChild(menuContainer);
 
   //create the grid container for appetizers,main courses, and desserts
   var appetizers = document.createElement("h2");
@@ -16012,7 +15979,7 @@ var createMenu = function createMenu() {
     var image = document.createElement("img");
     var priceEl = document.createElement("p");
     priceEl.classList.add("price");
-    append(foodItem, nameEl, image, priceEl);
+    (0, _home.append)(foodItem, nameEl, image, priceEl);
   }
 
   var mainCourse = document.createElement("h2");
@@ -16029,7 +15996,7 @@ var createMenu = function createMenu() {
     var _image = document.createElement("img");
     var _priceEl = document.createElement("p");
     _priceEl.classList.add("price");
-    append(_foodItem, _nameEl, _image, _priceEl);
+    (0, _home.append)(_foodItem, _nameEl, _image, _priceEl);
   }
 
   var desserts = document.createElement("h2");
@@ -16046,10 +16013,11 @@ var createMenu = function createMenu() {
     var _image2 = document.createElement("img");
     var _priceEl2 = document.createElement("p");
     _priceEl2.classList.add("price");
-    append(_foodItem2, _nameEl2, _image2, _priceEl2);
+    (0, _home.append)(_foodItem2, _nameEl2, _image2, _priceEl2);
   }
 
-  append(menuContainer, hEl, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
+  //append all of these to my menu-content
+  (0, _home.append)(menuContainer, hEl, appetizers, appsContainer, mainCourse, mainContainer, desserts, dessertsContainer);
 
   //create a menu card for each item on our menu
   createMenuCard(1, "Cheese fluffers", "firstapp", 43);
@@ -16072,16 +16040,7 @@ var createMenu = function createMenu() {
   createMenuCard(18, "Rainbow Icecream", "sixthdessert", 43);
 };
 
-var append = function append(parent) {
-  for (var _len = arguments.length, elements = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-    elements[_key - 1] = arguments[_key];
-  }
-
-  elements.forEach(function (element) {
-    parent.appendChild(element);
-  });
-};
-
+//function for creating a menu card
 var createMenuCard = function createMenuCard(id, foodName, picFileName, price) {
   document.querySelector("#_" + id).querySelector(".name").textContent = "" + foodName;
   document.querySelector("#_" + id).querySelector("img").setAttribute("src", "../../public/images/" + picFileName + ".jpg");
@@ -16089,7 +16048,7 @@ var createMenuCard = function createMenuCard(id, foodName, picFileName, price) {
 };
 
 exports.createMenu = createMenu;
-exports.append = append;
+exports.append = _home.append;
 
 /***/ }),
 

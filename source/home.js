@@ -1,3 +1,31 @@
+const append=(parent,...elements)=>{
+  elements.forEach((element)=>{
+    parent.appendChild(element)
+  })
+}
+
+
+
+//create my header section
+const header=document.createElement("header");
+const headerContainer=document.createElement("div");
+headerContainer.classList.add("header-container");
+
+
+//create left div header section that contains restaurants name
+const leftHeaderDiv=document.createElement("div")
+const restName=document.createElement("p");
+restName.textContent="Apples To Bananas";
+leftHeaderDiv.appendChild(restName);
+headerContainer.appendChild(leftHeaderDiv)
+
+//create right div header section that contains nav links
+const rightHeaderDiv=document.createElement("nav");
+
+headerContainer.appendChild(rightHeaderDiv);
+header.appendChild(headerContainer)
+
+
 const homeTab=document.createElement("a");
 homeTab.setAttribute("id","home");
 homeTab.textContent="Home";
@@ -7,30 +35,14 @@ menuTab.textContent="Menu"
 const contactUsTab=document.createElement("a");
 contactUsTab.setAttribute("id","contact_us")
 contactUsTab.textContent="Contact Us"
+append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
+
 
 const createHomePage=()=>{
   const body=document.createElement("div")
   body.classList.add("content")
   document.querySelector("body").appendChild(body);
 
-
-  //create my header section
-  const header=document.createElement("header");
-  const headerContainer=document.createElement("div");
-  headerContainer.classList.add("header-container")
-
-  //create left div header section that contains restaurants name
-  const leftHeaderDiv=document.createElement("div")
-  const restName=document.createElement("p");
-  restName.textContent="Apples To Bananas";
-  leftHeaderDiv.appendChild(restName);
-  headerContainer.appendChild(leftHeaderDiv)
-
-  //create right div header section that contains nav links
-  const rightHeaderDiv=document.createElement("nav");
-  append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
-  headerContainer.appendChild(rightHeaderDiv);
-  header.appendChild(headerContainer)
 
   //append the header to the body
   body.appendChild(header)
@@ -58,12 +70,7 @@ const createHomePage=()=>{
 }
 
 
-const append=(parent,...elements)=>{
-  elements.forEach((element)=>{
-    parent.appendChild(element)
-  })
-}
 
 
 
-export{createHomePage,homeTab,menuTab,contactUsTab}
+export{createHomePage,homeTab,menuTab,contactUsTab,header,append}

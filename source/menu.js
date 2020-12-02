@@ -1,39 +1,23 @@
-import{homeTab,menuTab,contactUsTab}from "./home.js"
+import{homeTab,menuTab,contactUsTab,header,append}from "./home.js"
 
 const createMenu=()=>{
-  const hEl=document.createElement("h1");
-  hEl.textContent="Menu"
-//create my header section
-const header=document.createElement("header");
-const headerContainer=document.createElement("div");
-headerContainer.classList.add("header-container")
-
-//create left div header section that contains restaurants name
-const leftHeaderDiv=document.createElement("div")
-const restName=document.createElement("p");
-restName.textContent="Apples To Bananas";
-leftHeaderDiv.appendChild(restName);
-headerContainer.appendChild(leftHeaderDiv);
-//create right div header section that contains nav links
-const rightHeaderDiv=document.createElement("nav");
-append(rightHeaderDiv,homeTab,menuTab,contactUsTab)
-headerContainer.appendChild(rightHeaderDiv);
-header.appendChild(headerContainer)
+const hEl=document.createElement("h1");
+hEl.textContent="Menu"
 
 //append the header to my document first
-document.querySelector("body").appendChild(headerContainer)
+document.querySelector("body").appendChild(header)
 
-//append the menu-content div to my body. Contains everything related to menu
-const body=document.createElement("section")
-body.classList.add("menu-content")
+//create a section with class of menu-content. Contains everything related to menu
+const section=document.createElement("section")
+section.classList.add("menu-content")
 
-document.querySelector("body").appendChild(body);
+//append this section to my body
+document.querySelector("body").appendChild(section);
 
-
-
+//create a menu container div that goes inside my menu-content section. It's just a container for the elements in that section.
 const menuContainer=document.createElement("div");
 menuContainer.classList.add("menu-container")
-body.appendChild(menuContainer);
+section.appendChild(menuContainer);
 
 //create the grid container for appetizers,main courses, and desserts
   const appetizers=document.createElement("h2");
@@ -88,7 +72,7 @@ body.appendChild(menuContainer);
   }
 
 
-
+//append all of these to my menu-content
 append(menuContainer,hEl,appetizers,appsContainer,mainCourse,mainContainer,desserts,dessertsContainer)
 
 //create a menu card for each item on our menu
@@ -109,18 +93,10 @@ createMenuCard(14,"Crumble Bars","seconddessert",43);
 createMenuCard(15,"Oreo Cake","thirddessert",43);
 createMenuCard(16,"Cheesecake","fourthdessert",43);
 createMenuCard(17,"Lemon Bars","fifthdessert",43);
-createMenuCard(18,"Rainbow Icecream","sixthdessert",43)
-
-
-
+createMenuCard(18,"Rainbow Icecream","sixthdessert",43);
 }
 
-const append=(parent,...elements)=>{
-  elements.forEach((element)=>{
-    parent.appendChild(element)
-  })
-}
-
+//function for creating a menu card
 const createMenuCard=(id,foodName,picFileName,price)=>{
   document.querySelector(`#_${id}`).querySelector(".name").textContent=`${foodName}`;
   document.querySelector(`#_${id}`).querySelector("img").setAttribute("src",`../../public/images/${picFileName}.jpg`)

@@ -16043,7 +16043,7 @@ var createMenu = function createMenu() {
 //function for creating a menu card
 var createMenuCard = function createMenuCard(id, foodName, picFileName, price) {
   document.querySelector("#_" + id).querySelector(".name").textContent = "" + foodName;
-  document.querySelector("#_" + id).querySelector("img").setAttribute("src", "../../public/images/" + picFileName + ".jpg");
+  document.querySelector("#_" + id).querySelector("img").setAttribute("src", "./images/" + picFileName + ".jpg");
   document.querySelector("#_" + id).querySelector(".price").textContent = "$" + price;
 };
 

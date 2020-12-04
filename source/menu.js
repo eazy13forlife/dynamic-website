@@ -99,7 +99,7 @@ createMenuCard(18,"Rainbow Icecream","sixthdessert",43);
 //function for creating a menu card
 const createMenuCard=(id,foodName,picFileName,price)=>{
   document.querySelector(`#_${id}`).querySelector(".name").textContent=`${foodName}`;
-  document.querySelector(`#_${id}`).querySelector("img").setAttribute("src",`../../public/images/${picFileName}.jpg`)
+  document.querySelector(`#_${id}`).querySelector("img").setAttribute("src",`./images/${picFileName}.jpg`)
   document.querySelector(`#_${id}`).querySelector(".price").textContent=`$${price}`
 }
 
